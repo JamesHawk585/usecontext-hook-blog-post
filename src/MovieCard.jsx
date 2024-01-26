@@ -1,3 +1,5 @@
+
+
 const MovieCard = ({movie}) => {
     console.log('movie: ', movie)
     return (
