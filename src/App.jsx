@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, createContext, useState } from 'react';
+import MoviesPage from './MoviesPage';
 
-export const movies = createContext(movies)
+export const moviesContext = createContext()
 
 
 function App() {
@@ -12,12 +13,12 @@ function App() {
     fetch('http://localhost:5555/movies')
     .then((r) => r.json())
     .then(setMovies)
-  })
+  }, []);
 
   return (
-    <movies.Provider movies={movies}>
+    <moviesContext.Provider value={movies}>
     <MoviesPage/>
-    </movies.Provider>
+    </moviesContext.Provider>
   );
 }
 

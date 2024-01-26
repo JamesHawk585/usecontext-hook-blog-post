@@ -1,9 +1,17 @@
+import { moviesContext } from './App'
 import MoviesList from './MoviesList'
+import { useContext } from 'react'
 
-const MoviesPage = ({movies}) => {
+import MovieCard from './MovieCard'
+
+const MoviesList = ({movies}) => {
+    const movies = useContext(movies)
     return (
-        <MoviesList movies={movies}/>
+        <>
+        {movies.map((movie, index) => <MovieCard key={index} movie={movie}/>
+        )}
+        </>
     )
 }
 
-export default MoviesPage
+export default MoviesList
